@@ -5,6 +5,8 @@ var myApp = angular.module('myModule', []);
 
 //Creating the controller and registering with the module all done.
 myApp.controller("SchoolController", SchoolController);
+
+myApp.directive("teduShopDirective", teduShopDirective);
 myApp.service('Validator', Validator);
 //myApp.controller("StudentController", StudentController);
 //myApp.controller("TeacherController", TeacherController);
@@ -40,5 +42,12 @@ function Validator($window) {
         }
         else
             return 'This is odd';
+    }
+}
+
+function teduShopDirective() {
+    return {
+        restrict: "A",
+        templateUrl:"/Scripts/spa/teduShopDirective.html"
     }
 }
