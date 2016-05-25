@@ -1,0 +1,9 @@
+{
+  "name": "TeduShop.Web",
+  "private": true,
+  "dependencies":{
+  "angular": "~1.5.5"
+  }
+  
+  
+}
