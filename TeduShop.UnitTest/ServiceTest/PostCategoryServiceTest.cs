@@ -24,24 +24,24 @@ namespace TeduShop.UnitTest.ServiceTest
             _categoryService = new PostCategoryService(_mockRepository.Object, _mockUnitOfWork.Object);
             _listCategory = new List<PostCategory>()
             {
-                new PostCategory(){ ID = 1, Name="DM1", Status = true},
-                new PostCategory(){ ID = 2, Name="DM2", Status = true},
-                new PostCategory(){ ID = 3, Name="DM3", Status = true}
+                new PostCategory() {ID =1 ,Name="DM1",Status=true },
+                new PostCategory() {ID =2 ,Name="DM2",Status=true },
+                new PostCategory() {ID =3 ,Name="DM3",Status=true },
             };
         }
 
         [TestMethod]
         public void PostCategory_Service_GetAll()
         {
-            //Setup method
+            //setup method
             _mockRepository.Setup(m => m.GetAll(null)).Returns(_listCategory);
 
-            //Call action
+            //call action
             var result = _categoryService.GetAll() as List<PostCategory>;
 
-            //Compare
+            //compare
             Assert.IsNotNull(result);
-            Assert.AreEqual(3, result.Count); 
+            Assert.AreEqual(3, result.Count);
         }
 
         [TestMethod]
@@ -54,15 +54,17 @@ namespace TeduShop.UnitTest.ServiceTest
             category.Status = true;
 
             _mockRepository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
-            {
-                p.ID = 1;
-                return p;
-            });
+              {
+                  p.ID = 1;
+                  return p;
+              });
 
             var result = _categoryService.Add(category);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.ID);
+
+
         }
     }
 }

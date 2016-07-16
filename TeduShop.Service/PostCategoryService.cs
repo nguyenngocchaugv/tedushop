@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -38,14 +39,9 @@ namespace TeduShop.Service
             return _postCategoryRepository.Add(postCategory);
         }
 
-        public void Update(PostCategory postCategory)
-        {
-            _postCategoryRepository.Update(postCategory);
-        }
-
         public PostCategory Delete(int id)
         {
-            return _postCategoryRepository.Delete(id);
+           return _postCategoryRepository.Delete(id);
         }
 
         public IEnumerable<PostCategory> GetAll()
@@ -63,10 +59,14 @@ namespace TeduShop.Service
             return _postCategoryRepository.GetSingleById(id);
         }
 
-
         public void Save()
         {
             _unitOfWork.Commit();
+        }
+
+        public void Update(PostCategory postCategory)
+        {
+            _postCategoryRepository.Update(postCategory);
         }
     }
 }

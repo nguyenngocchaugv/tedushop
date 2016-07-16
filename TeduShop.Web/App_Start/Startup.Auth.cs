@@ -6,7 +6,7 @@ using Owin;
 using System;
 using TeduShop.Data;
 using TeduShop.Model.Models;
-using TeduShop.Web.App_Start;
+
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 
 namespace TeduShop.Web.App_Start
@@ -18,8 +18,8 @@ namespace TeduShop.Web.App_Start
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(TeduShopDbContext.Create);
-            app.CreatePerOwinContext<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager>(TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager.Create);
-            app.CreatePerOwinContext<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager>(TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -32,7 +32,7 @@ namespace TeduShop.Web.App_Start
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }

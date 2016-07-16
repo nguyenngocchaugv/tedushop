@@ -11,24 +11,24 @@ namespace TeduShop.Web.Api
     [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
-        private TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager _signInManager;
-        private TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager _userManager;
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager userManager, TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager SignInManager
+        public ApplicationSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.Current.GetOwinContext().Get<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager>();
+                return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set
             {
@@ -36,11 +36,11 @@ namespace TeduShop.Web.Api
             }
         }
 
-        public TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager UserManager
+        public ApplicationUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager>();
+                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -62,5 +62,7 @@ namespace TeduShop.Web.Api
             var result = await SignInManager.PasswordSignInAsync(userName, password, rememberMe, shouldLockout: false);
             return request.CreateResponse(HttpStatusCode.OK, result);
         }
+
+
     }
 }

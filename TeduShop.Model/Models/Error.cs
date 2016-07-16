@@ -11,7 +11,9 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         public string Message { set; get; }
+
         public string StackTrace { set; get; }
+
         public DateTime CreatedDate { set; get; }
     }
 }

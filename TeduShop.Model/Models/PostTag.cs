@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeduShop.Model.Models
 {
@@ -16,7 +11,7 @@ namespace TeduShop.Model.Models
         public int PostID { set; get; }
 
         [Key]
-        [Column(TypeName = "varchar", Order = 2)]
+        [Column(TypeName = "varchar",Order =2)]
         [MaxLength(50)]
         public string TagID { set; get; }
 

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
@@ -17,6 +15,7 @@ namespace TeduShop.Data.Infrastructure
 
         // Marks an entity to be removed
         T Delete(T entity);
+
         T Delete(int id);
 
         //Delete multi records

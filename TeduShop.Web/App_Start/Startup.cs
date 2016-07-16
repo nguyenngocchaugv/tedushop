@@ -30,14 +30,12 @@ namespace TeduShop.Web.App_Start
             ConfigAutofac(app);
             ConfigureAuth(app);
         }
-
-        public void ConfigAutofac(IAppBuilder app)
+        private void ConfigAutofac(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
-
-            //Register your Web API controller.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            // Register your Web API controllers.
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
@@ -46,27 +44,27 @@ namespace TeduShop.Web.App_Start
 
             //Asp.net Identity
             builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
-            builder.RegisterType<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationUserManager>().AsSelf().InstancePerRequest();
-            builder.RegisterType<TeduShop.Web.App_Start.ApplicationUserStore.ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
-            //Repositories
+
+            // Repositories
             builder.RegisterAssemblyTypes(typeof(PostCategoryRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().InstancePerRequest();
 
-            //Services
+            // Services
             builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
-                .Where(t => t.Name.EndsWith("Service"))
-                .AsImplementedInterfaces().InstancePerRequest();
-
-            //Gán tất cả ở trên vào container
+               .Where(t => t.Name.EndsWith("Service"))
+               .AsImplementedInterfaces().InstancePerRequest();
 
             Autofac.IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container); //Set the WebApi DependencyResolver
+
         }
     }
 }

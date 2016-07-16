@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -16,7 +12,8 @@ namespace TeduShop.UnitTest.RepositoryTest
         IDbFactory dbFactory;
         IPostCategoryRepository objRepository;
         IUnitOfWork unitOfWork;
-        [TestInitialize] //Chay dau tien thiet lap cac doi tuong
+
+        [TestInitialize]
         public void Initialize()
         {
             dbFactory = new DbFactory();
@@ -28,7 +25,7 @@ namespace TeduShop.UnitTest.RepositoryTest
         public void PostCategory_Repository_GetAll()
         {
             var list = objRepository.GetAll().ToList();
-            Assert.AreEqual(1, list.Count);
+            Assert.AreEqual(3, list.Count);
         }
 
         [TestMethod]
@@ -38,12 +35,13 @@ namespace TeduShop.UnitTest.RepositoryTest
             category.Name = "Test category";
             category.Alias = "Test-category";
             category.Status = true;
+
             var result = objRepository.Add(category);
             unitOfWork.Commit();
-            
+
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ID);
-           
+            Assert.AreEqual(3, result.ID);
         }
+
     }
 }

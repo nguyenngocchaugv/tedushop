@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C4CD81AE-4A39-4F4C-BA26-F7B5FC3F08F7}</ProjectGuid>
+    <ProjectGuid>{2E7049C4-3EA9-4ABC-88EA-E63FC64814D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeduShop.UnitTest</RootNamespace>
@@ -36,14 +36,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Moq">
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -67,23 +69,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">
-      <Project>{b0ed1069-92d6-4371-91fd-2cbffcf898b4}</Project>
+      <Project>{300cc7f5-31a6-44b7-8d90-f354ac34b936}</Project>
       <Name>TeduShop.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeduShop.Data\TeduShop.Data.csproj">
-      <Project>{4c026db3-14f8-4e4a-8dbb-591ccdf0c558}</Project>
+      <Project>{d573cfed-f642-4868-b921-4226cb26cdfe}</Project>
       <Name>TeduShop.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeduShop.Model\TeduShop.Model.csproj">
-      <Project>{463a8cba-2258-4b1a-b0ce-83f0fbbe8ddd}</Project>
+      <Project>{1a60e027-7b3b-4881-9ec3-2666b297cb43}</Project>
       <Name>TeduShop.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeduShop.Service\TeduShop.Service.csproj">
-      <Project>{6c553973-d614-4bef-b720-e05800815c33}</Project>
+      <Project>{7eb49ce5-4c7a-46d0-b381-eb19a5f8dfaa}</Project>
       <Name>TeduShop.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeduShop.Web\TeduShop.Web.csproj">
-      <Project>{25d0f671-7c3d-4d32-8d3e-acb91498285a}</Project>
+      <Project>{9fdd5a55-9084-4992-918d-02d0e6b0fad8}</Project>
       <Name>TeduShop.Web</Name>
     </ProjectReference>
   </ItemGroup>

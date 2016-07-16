@@ -9,10 +9,9 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data
 {
-    public class TeduShopDbContext: IdentityDbContext<ApplicationUser>
+    public class TeduShopDbContext : IdentityDbContext<ApplicationUser>
     {
-        public TeduShopDbContext()
-            : base("TeduShopConnection")
+        public TeduShopDbContext() : base("TeduShopConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
@@ -24,15 +23,18 @@ namespace TeduShop.Data
         public DbSet<OrderDetail> OrderDetails { set; get; }
         public DbSet<Page> Pages { set; get; }
         public DbSet<Post> Posts { set; get; }
-        public DbSet<PostCategory> PostCategorys { set; get; }
+        public DbSet<PostCategory> PostCategories { set; get; }
         public DbSet<PostTag> PostTags { set; get; }
         public DbSet<Product> Products { set; get; }
+
         public DbSet<ProductCategory> ProductCategories { set; get; }
         public DbSet<ProductTag> ProductTags { set; get; }
         public DbSet<Slide> Slides { set; get; }
         public DbSet<SupportOnline> SupportOnlines { set; get; }
         public DbSet<SystemConfig> SystemConfigs { set; get; }
+
         public DbSet<Tag> Tags { set; get; }
+
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         public DbSet<Error> Errors { set; get; }
 
@@ -46,8 +48,5 @@ namespace TeduShop.Data
             builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
             builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
-
-
-
     }
 }

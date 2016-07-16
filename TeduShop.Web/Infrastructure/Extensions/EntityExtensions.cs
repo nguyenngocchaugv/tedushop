@@ -9,45 +9,46 @@ namespace TeduShop.Web.Infrastructure.Extensions
 {
     public static class EntityExtensions
     {
-        public static void UpdatePostCategory(this PostCategory postCategory,PostCategoryViewModel postCategoryViewModel)
+        public static void UpdatePostCategory(this PostCategory postCategory, PostCategoryViewModel postCategoryVm)
         {
-            postCategory.ID = postCategoryViewModel.ID;
-            postCategory.Name = postCategoryViewModel.Name;
-            postCategory.Description = postCategoryViewModel.Description;
-            postCategory.Alias = postCategoryViewModel.Alias;
-            postCategory.ParentID = postCategoryViewModel.ParentID;
-            postCategory.DisplayOrder = postCategoryViewModel.DisplayOrder;
-            postCategory.Image = postCategoryViewModel.Image;
-            postCategory.HomeFlag = postCategoryViewModel.HomeFlag;
+            postCategory.ID = postCategoryVm.ID;
+            postCategory.Name = postCategoryVm.Name;
+            postCategory.Description = postCategoryVm.Description;
+            postCategory.Alias = postCategoryVm.Alias;
+            postCategory.ParentID = postCategoryVm.ParentID;
+            postCategory.DisplayOrder = postCategoryVm.DisplayOrder;
+            postCategory.Image = postCategoryVm.Image;
+            postCategory.HomeFlag = postCategoryVm.HomeFlag;
 
-            postCategory.CreatedDate = postCategoryViewModel.CreatedDate;
-            postCategory.CreateBy = postCategoryViewModel.CreateBy;
-            postCategory.UpdatedDate = postCategoryViewModel.UpdatedDate;
-            postCategory.UpdateBy = postCategoryViewModel.UpdateBy;
-            postCategory.MetaKeyword = postCategoryViewModel.MetaKeyword;
-            postCategory.MetaDescription = postCategoryViewModel.MetaDescription;
-            postCategory.Status = postCategoryViewModel.Status;
+            postCategory.CreatedDate = postCategoryVm.CreatedDate;
+            postCategory.CreatedBy = postCategoryVm.CreatedBy;
+            postCategory.UpdatedDate = postCategoryVm.UpdatedDate;
+            postCategory.UpdatedBy = postCategoryVm.UpdatedBy;
+            postCategory.MetaKeyword = postCategoryVm.MetaKeyword;
+            postCategory.MetaDescription = postCategoryVm.MetaDescription;
+            postCategory.Status = postCategoryVm.Status;
+
         }
 
-        public static void UpdatePost(this Post post, PostViewModel postViewModel)
+        public static void UpdatePost(this Post post, PostViewModel postVm)
         {
-            post.ID = postViewModel.ID;
-            post.Name = postViewModel.Name;
-            post.Description = postViewModel.Description;
-            post.Alias = postViewModel.Alias;
-            post.CategoryID = postViewModel.CategoryID;
-            post.Content = postViewModel.Content;
-            post.Image = postViewModel.Image;
-            post.HomeFlag = postViewModel.HomeFlag;
-            post.ViewCount = postViewModel.ViewCount;
+            post.ID = postVm.ID;
+            post.Name = postVm.Name;
+            post.Description = postVm.Description;
+            post.Alias = postVm.Alias;
+            post.CategoryID = postVm.CategoryID;
+            post.Content = postVm.Content;
+            post.Image = postVm.Image;
+            post.HomeFlag = postVm.HomeFlag;
+            post.ViewCount = postVm.ViewCount;
 
-            post.CreatedDate = postViewModel.CreatedDate;
-            post.CreateBy = postViewModel.CreateBy;
-            post.UpdatedDate = postViewModel.UpdatedDate;
-            post.UpdateBy = postViewModel.UpdateBy;
-            post.MetaKeyword = postViewModel.MetaKeyword;
-            post.MetaDescription = postViewModel.MetaDescription;
-            post.Status = postViewModel.Status;
+            post.CreatedDate = postVm.CreatedDate;
+            post.CreatedBy = postVm.CreatedBy;
+            post.UpdatedDate = postVm.UpdatedDate;
+            post.UpdatedBy = postVm.UpdatedBy;
+            post.MetaKeyword = postVm.MetaKeyword;
+            post.MetaDescription = postVm.MetaDescription;
+            post.Status = postVm.Status;
         }
     }
 }

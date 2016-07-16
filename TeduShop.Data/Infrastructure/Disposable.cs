@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
-    public class Disposable: IDisposable
+    public class Disposable : IDisposable
     {
         private bool isDisposed;
 
